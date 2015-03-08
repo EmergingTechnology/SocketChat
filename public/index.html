@@ -6,19 +6,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Chat App</title>
     <link rel="stylesheet" href="">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 </head>
 
 <body>
     <div id="chat"></div>
     <form id="send-message" accept-charset="utf-8">
-        <input type="text" size="35" id="message" name="" value="" placeholder="">
-        <input type="submit" name="" value="">
+        <input type="text" autocomplete="off" id="m" size="40" id="message" name="" value="" placeholder="">
+        <button>Send</button>
     </form>
 
     <!-- Jquey CDN -->
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <!-- Socket IO JS file -->
     <script src="/socket.io/socket.io.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <!-- Adding JQuert DOcument Code -->
+    <script>
+    jquery(function($) {
+        var socket = io.connect();
+        var $messageForm = $('send-message');
+        var $messageBox = $('message');
+        var $chat = $('chat');
+
+        $messageForm.submit(function(e) {
+            e.preventDefault();
+            socket.emit('send message', $messageBox.val());
+            $messageBox.val('');
+        })
+    });
+    </script>
 </body>
 
 </html>
