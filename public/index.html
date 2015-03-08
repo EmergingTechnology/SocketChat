@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Chat App</title>
-	<link rel="stylesheet" href="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="">
 </head>
+
 <body>
-	
+    <div id="chat"></div>
+    <form id="send-message" accept-charset="utf-8">
+        <input type="text" size="35" id="message" name="" value="" placeholder="">
+        <input type="submit" name="" value="">
+    </form>
+
+    <!-- Jquey CDN -->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- Socket IO JS file -->
+    <script src="/socket.io/socket.io.js"></script>
 </body>
+
 </html>
