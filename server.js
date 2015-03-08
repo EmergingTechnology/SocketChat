@@ -11,3 +11,8 @@ app.get('/', function(req, res) {
     res.sendFile(__dirname + '/public/index.html');
 });
 
+io.socket.on('connection', function(socket){
+	socket.on('send message', function(data){
+		io.socket.emit('new message', data);
+	});
+});
